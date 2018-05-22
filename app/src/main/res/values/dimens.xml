@@ -1,0 +1,88 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 通用字体设置-->
+    <dimen name="font_micro_12">12sp</dimen>
+
+    <dimen name="font_small_14">14sp</dimen>
+
+    <dimen name="font_medium_16">16sp</dimen>
+
+    <dimen name="font_medium_18">18sp</dimen>
+
+    <dimen name="font_large_20">20sp</dimen>
+
+    <dimen name="font_large_22">22sp</dimen>
+
+    <!-- 通用高度设置-->
+
+    <dimen name="height_head_52">52dp</dimen>
+
+    <!--按钮、Item高度等-->
+    <dimen name="al_item_height">45dp</dimen>
+
+    <!--统一距离边缘的距离-->
+    <dimen name="DistanceMaxBig">30dp</dimen>
+    <dimen name="DistanceBig">15dp</dimen>
+    <dimen name="DistanceIn">10dp</dimen>
+    <dimen name="DistanceSmall">5dp</dimen>
+    <dimen name="DistanceSpace">20dp</dimen>
+
+    <!--广告轮播banner高度-->
+
+    <dimen name="albanner_height">160dp</dimen>
+
+    <!-- 头部高度 -->
+    <dimen name="TopHight">52dp</dimen>
+
+    <!-- 头部字体大小-->
+    <dimen name="TopTxtSize">22sp</dimen>
+    <!-- 普通大字体-->
+    <dimen name="TxtSizeBig">16sp</dimen>
+    <!-- 普通字体大小-->
+    <dimen name="TxtSize">14sp</dimen>
+    <!-- 普通小字体-->
+    <dimen name="TxtSizeSmall">12sp</dimen>
+    <!--大按键文字大小-->
+    <dimen name="BtnTxtSize">20sp</dimen>
+    <!-- 普通字体大小-->
+    <dimen name="InputTxtSize">16sp</dimen>
+    <!-- 标题栏字体大小-->
+    <dimen name="ToolbarTxtSize">18sp</dimen>
+
+    <!-- 标文字距离左边距离-->
+    <dimen name="TxtSizeDistance">13dp</dimen>
+    <!-- 输入框高度 -->
+    <dimen name="InputTop">50dp</dimen>
+    <!--对话框的高度-->
+    <dimen name="BtnDialogHight">45dp</dimen>
+    <!--大按键高度-->
+    <dimen name="BtnHight">45dp</dimen>
+    <!--我的页面 Item高度-->
+    <dimen name="MineItemTop">45dp</dimen>
+    <!-- 距离顶部高度 -->
+    <dimen name="MarginTop">45dp</dimen>
+    <!--Dialog边缘的距离-->
+    <dimen name="DialogDistance">20dp</dimen>
+    <!--底部栏高度-->
+    <dimen name="BotBar">48dp</dimen>
+
+    <!-- 分割线高度 -->
+    <dimen name="divide_line">0.5dp</dimen>
+    <!-- 登录输入框文字大小 -->
+    <dimen name="default_login_text">18sp</dimen>
+    <!-- 滑动头部文字大小 -->
+    <dimen name="fragac_title_size">16sp</dimen>
+    <!-- 滑动头部文字内边距 -->
+    <dimen name="fragac_title_padding">6dp</dimen>
+    <!-- 滑动头部游标高度 -->
+    <dimen name="fragac_title_cursor">2dp</dimen>
+
+    <dimen name="Animation">45dp</dimen>
+
+    <!--金币专属-->
+    <dimen name="dp_10">10dp</dimen>
+
+</resources>
