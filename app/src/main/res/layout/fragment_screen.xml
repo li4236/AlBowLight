@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:paddingLeft="10dp"
-              android:paddingRight="10dp"
-              android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
 
 
-              android:orientation="vertical"
-              tools:context="com.al.bowlight.MainActivity">
+    android:paddingRight="10dp"
+    tools:context="com.al.bowlight.MainActivity">
 
 
     <TextView
-        android:textColor="#fff"
-        android:layout_margin="20dp"
-        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="情景"/>
+        android:layout_margin="20dp"
+        android:text="情景"
+        android:textColor="#fff"
+        android:textSize="18dp" />
 
     <android.support.v7.widget.RecyclerView
+        android:overScrollMode="never"
         android:id="@+id/screen_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
     <SeekBar
+        android:maxHeight="4dp"
+        android:minHeight="4dp"
+
+        android:progressDrawable="@drawable/seekbar_progress"
+        android:thumb="@drawable/seekbar_thumb"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/screen_bottom"
+        android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
 
 
 </LinearLayout>

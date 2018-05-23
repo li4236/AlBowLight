@@ -1,7 +1,10 @@
 package com.al.bowlight.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.al.bowlight.R;
 import com.al.bowlight.base.AlRBaseAdapter;
@@ -20,10 +23,32 @@ public class ScreenBotAdapter extends AlRBaseAdapter<ScreenInfo> {
     }
 
     @Override
-    protected void bindDataToItemView(AlRViewHolder viewHolder, ScreenInfo item, int position) {
+    protected void bindDataToItemView(final AlRViewHolder viewHolder, final ScreenInfo item, int position) {
 
 
-        ((CardView)viewHolder.get(R.id.sc_card)).setCardBackgroundColor(item.getPath());
+        ((CardView) viewHolder.get(R.id.sc_card)).setCardBackgroundColor(item.getPath());
+//        (viewHolder.get(R.id.sc_card)).setBackgroundColor(item.getPath());
+        viewHolder.get(R.id.sc_card).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        ((CardView) viewHolder.get(R.id.sc_card)).setCardBackgroundColor(Color.argb(255, 220, 220, 220));
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        ((CardView) viewHolder.get(R.id.sc_card)).setCardBackgroundColor(Color.argb(255, 220, 220, 220));
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        ((CardView) viewHolder.get(R.id.sc_card)).setCardBackgroundColor(item.getPath());
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        ((CardView) viewHolder.get(R.id.sc_card)).setCardBackgroundColor(item.getPath());
+                        break;
+                }
+                return true;
+            }
+        });
+
 
 
     }

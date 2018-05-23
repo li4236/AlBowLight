@@ -1,9 +1,14 @@
 package com.al.bowlight.fragment;
 
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TimePicker;
 
 import com.al.bowlight.R;
 import com.al.bowlight.adapter.ScreenAdapter;
@@ -23,9 +28,15 @@ public class ScreenFragment extends BaseFragment {
 
     private RecyclerView mTopRv, mBottomRv;
 
+
+    private ImageView mTopIv, mBottomTv;
+    private EditText mTopEdit, mBottomEdit;
+
+    private boolean mSelect;
+
     @Override
     protected int onLayoutId() {
-        return R.layout.fragment_screen;
+        return R.layout.pop_time;
     }
 
     @Override
@@ -36,41 +47,137 @@ public class ScreenFragment extends BaseFragment {
         initData();
     }
 
-
     public void initView() {
 
-        mTopRv = mViewGroup.findViewById(R.id.screen_top);
+        mTopIv = mViewGroup.findViewById(R.id.pop_top_close);
 
-        mBottomRv = mViewGroup.findViewById(R.id.screen_bottom);
+        mTopEdit = mViewGroup.findViewById(R.id.pop_top_edit);
 
-        //设置布局管理器
-        GridLayoutManager layoutManage = new GridLayoutManager(getContext(), 3);
-        GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
-        mTopRv.setLayoutManager(layoutManage);
-        mBottomRv.setLayoutManager(manager);
+        mBottomTv = mViewGroup.findViewById(R.id.pop_bottom_close);
 
-        ScreenAdapter mAdapter = new ScreenAdapter(getContext(), getTopData());
+        mBottomEdit = mViewGroup.findViewById(R.id.pop_bottom_edit);
 
-        mTopRv.setAdapter(mAdapter);
 
-        ScreenBotAdapter m = new ScreenBotAdapter(getContext(), getColorData());
-
-        mBottomRv.setAdapter(m);
-
-        mAdapter.setOnItemClickListener(new onAlItemClickListener<ScreenInfo>() {
+        mTopIv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view, ScreenInfo item) {
+            public void onClick(View view) {
+                if (view.getTag() == null) {
+                    view.setTag("==");
+                    mTopIv.setImageResource(R.mipmap.switch_open);
+                } else {
+                    view.setTag(null);
+                    mTopIv.setImageResource(R.mipmap.switch_close);
+                }
+            }
+        });
+
+        mBottomTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getTag() == null) {
+                    view.setTag("==");
+                    mBottomTv.setImageResource(R.mipmap.switch_open);
+                } else {
+                    view.setTag(null);
+                    mBottomTv.setImageResource(R.mipmap.switch_close);
+                }
+            }
+        });
+
+
+        final TimePicker timePicker = mViewGroup.findViewById(R.id.timePic1);
+
+        timePicker.setIs24HourView(true);
+
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+
+                if (mSelect){
+                    mBottomEdit.setText(i+":"+i1);
+                }else {
+                    mTopEdit.setText(i+":"+i1);
+                }
 
             }
         });
 
-        m.setOnItemClickListener(new onAlItemClickListener() {
-            @Override
-            public void onClick(View view, Object item) {
 
+        mTopEdit.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View view) {
+
+                mSelect = false;
+                mTopEdit.setBackgroundResource(R.mipmap.display_box_blue);
+                mTopEdit.setTextColor(getActivity().getResources().getColor(R.color.them));
+                mBottomEdit.setTextColor(getActivity().getResources().getColor(R.color.themColor));
+                mBottomEdit.setBackgroundResource(R.mipmap.display_box_gray);
+
+                String timer = mTopEdit.getText().toString();
+                String timers[] = timer.split(":");
+                timePicker.setHour( Integer.parseInt(timers[0]));
+                timePicker.setMinute(Integer.parseInt(timers[1]));
+            }
+        });
+
+        mBottomEdit.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View view) {
+
+                mSelect = true;
+                mBottomEdit.setBackgroundResource(R.mipmap.display_box_blue);
+                mTopEdit.setBackgroundResource(R.mipmap.display_box_gray);
+                mBottomEdit.setTextColor(getActivity().getResources().getColor(R.color.them));
+                mTopEdit.setTextColor(getActivity().getResources().getColor(R.color.themColor));
+
+                String timer = mBottomEdit.getText().toString();
+                String timers[] = timer.split(":");
+
+
+                timePicker.setHour( Integer.parseInt(timers[0]));
+                timePicker.setMinute(Integer.parseInt(timers[1]));
             }
         });
     }
+
+
+//    public void initView() {
+//
+//        mTopRv = mViewGroup.findViewById(R.id.screen_top);
+//
+//        mBottomRv = mViewGroup.findViewById(R.id.screen_bottom);
+//
+//        //设置布局管理器
+//        GridLayoutManager layoutManage = new GridLayoutManager(getContext(), 3);
+//        GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
+//        mTopRv.setLayoutManager(layoutManage);
+//        mBottomRv.setLayoutManager(manager);
+//
+//        ScreenAdapter mAdapter = new ScreenAdapter(getContext(), getTopData());
+//
+//        mTopRv.setAdapter(mAdapter);
+//
+//        ScreenBotAdapter m = new ScreenBotAdapter(getContext(), getColorData());
+//
+//        mBottomRv.setAdapter(m);
+//
+//        mAdapter.setOnItemClickListener(new onAlItemClickListener<ScreenInfo>() {
+//            @Override
+//            public void onClick(View view, ScreenInfo item) {
+//
+//            }
+//        });
+//
+//        m.setOnItemClickListener(new onAlItemClickListener() {
+//            @Override
+//            public void onClick(View view, Object item) {
+//
+//            }
+//        });
+//    }
 
     private void initData() {
 
@@ -127,7 +234,6 @@ public class ScreenFragment extends BaseFragment {
 
         info.setPath(Color.argb(255, 34, 64, 2));  // 半透明的紫色 );
         infos.add(info);
-
 
 
         ScreenInfo info3 = new ScreenInfo();

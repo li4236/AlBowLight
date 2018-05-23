@@ -4,11 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:gravity="center"
     android:orientation="vertical"
+
+
+    android:padding="10dp"
     tools:context="com.al.bowlight.MainActivity">
 
+
+    <ImageView
+        android:id="@+id/colour_timer"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/time_selector"
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/test"
@@ -16,36 +26,95 @@
         android:layout_height="wrap_content" />
 
     <!--<com.al.bowlight.view.TempControlView-->
-        <!--android:id="@+id/temp_control"-->
-        <!--android:layout_width="260dp"-->
-        <!--android:layout_height="260dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_marginTop="40dp" />-->
+    <!--android:id="@+id/temp_control"-->
+    <!--android:layout_width="260dp"-->
+    <!--android:layout_height="260dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginTop="40dp" />-->
 
     <com.al.bowlight.view.ColorPickerView
-        android:background="@mipmap/color_bgd"
         android:id="@+id/light_view"
-android:visibility="gone"
         android:layout_width="300dp"
-        android:layout_height="300dp" />
+        android:layout_height="300dp"
+        android:background="@mipmap/color_bgd"
+        android:visibility="gone" />
 
-    <com.larswerkman.holocolorpicker.ColorPicker
-        android:id="@+id/picker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+
+
+        android:layout_gravity="center">
+
+
+        <ImageView
+
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/color_bgd" />
+
+        <com.al.bowlight.view.ColorPicker
+            android:id="@+id/picker"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+
+
+            app:color_pointer_halo_radius="20dp"
+            app:color_pointer_radius="10dp"
+
+            app:color_wheel_thickness="50dp" />
+
+        <ImageView
+
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/color_on_off_new" />
+
+        <ImageView
+            android:id="@+id/colour_close"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+
+            android:src="@mipmap/lamp_switch_press" />
+
+    </FrameLayout>
+
+    <SeekBar
+        android:id="@+id/colour_sbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxHeight="5dp"
+        android:minHeight="5dp"
+        android:progressDrawable="@drawable/seekbar_progress"
+
+        android:thumb="@drawable/seekbar_thumb" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/colour_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:overScrollMode="never"></android.support.v7.widget.RecyclerView>
 
     <!--<com.larswerkman.holocolorpicker.SVBar-->
-        <!--android:id="@+id/svbar"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"/>-->
+    <!--android:id="@+id/svbar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
 
     <!--<com.larswerkman.holocolorpicker.SaturationBar-->
-        <!--android:id="@+id/saturationbar"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"/>-->
+    <!--android:id="@+id/saturationbar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
     <!--<com.larswerkman.holocolorpicker.ValueBar-->
-        <!--android:id="@+id/valuebar"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"/>-->
+    <!--android:id="@+id/valuebar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
 
 </LinearLayout>

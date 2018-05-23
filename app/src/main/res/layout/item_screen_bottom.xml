@@ -6,16 +6,19 @@
               android:gravity="center">
 
     <android.support.v7.widget.CardView
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:id="@+id/sc_card"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
 
-        android:foreground="@drawable/card_foreground_selector"
-        app:cardBackgroundColor="#f40"
+        android:clickable="true"
+
+
         app:cardCornerRadius="10dp"
 
     >
+
+
 
 
 

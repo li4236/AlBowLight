@@ -137,7 +137,7 @@ public class ValueBar extends View {
 	/**
 	 * {@code ColorPicker} instance used to control the ColorPicker.
 	 */
-	private com.larswerkman.holocolorpicker.ColorPicker mPicker = null;
+	private ColorPicker mPicker = null;
 
 	/**
 	 * Used to toggle orientation between vertical and horizontal.
@@ -492,7 +492,7 @@ public class ValueBar extends View {
 	 * @see com.larswerkman.holocolorpicker.ColorPicker#addSVBar(com.larswerkman.holocolorpicker.SVBar)
 	 * @param picker
 	 */
-	public void setColorPicker(com.larswerkman.holocolorpicker.ColorPicker picker) {
+	public void setColorPicker(ColorPicker picker) {
 		mPicker = picker;
 	}
 

@@ -19,7 +19,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private LinearLayout[] mTabs = new LinearLayout[mTabsId.length];
 
-    //亿众淘、金币商城、抢疯了
+    //亿众淘、金币商城、抢疯
+    // 了
     private Fragment[] mFragments = new Fragment[]{new ColourFragment(), new ScreenFragment()};
 
     public int index = 0;

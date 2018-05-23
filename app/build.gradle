@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.al.bowlight"
+        applicationId 'org.al.bowlight'
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
@@ -15,6 +15,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    signingConfigs {
+        debug {
+            storeFile file("E:\\打包APK\\AppSignKey.jks")
+            storePassword 'thuw4cud5&Epe8!Lc'
+            keyAlias 'LC_Android_App_Key#1'
+            keyPassword 'fGG7haw4a6A+en+prLCATAS8'
+        }
+        release {
+            storeFile file("E:\\打包APK\\AppSignKey.jks")
+            storePassword 'thuw4cud5&Epe8!Lc'
+            keyAlias 'LC_Android_App_Key#1'
+            keyPassword 'fGG7haw4a6A+en+prLCATAS8'
+        }
+    }
+    productFlavors {
     }
 }
 
