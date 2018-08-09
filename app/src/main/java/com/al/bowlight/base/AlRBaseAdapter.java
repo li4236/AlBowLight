@@ -25,7 +25,7 @@ public abstract class AlRBaseAdapter<T> extends RecyclerView.Adapter<AlRViewHold
 
     protected List<T> mList;
 
-    private Context mContext;
+    public Context mContext;
 
     public AlRBaseAdapter(Context context, List<T> list) {
 
@@ -57,18 +57,18 @@ public abstract class AlRBaseAdapter<T> extends RecyclerView.Adapter<AlRViewHold
     public final void onBindViewHolder(AlRViewHolder vh, int position) {
         final T item = getItem(position);
         bindDataToItemView(vh, item, position);
-        bindItemViewClickListener(vh, item);
+        bindItemViewClickListener(vh, item,position);
     }
 
     /**
      * 点击事件
      */
-    protected final void bindItemViewClickListener(RecyclerView.ViewHolder vh, final T item) {
+    protected final void bindItemViewClickListener(RecyclerView.ViewHolder vh, final T item , final int position) {
         if (mOnItemClickListener != null) {
             vh.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mOnItemClickListener.onClick(view, item);
+                    mOnItemClickListener.onClick(view, item,position);
                 }
             });
         }
@@ -76,7 +76,7 @@ public abstract class AlRBaseAdapter<T> extends RecyclerView.Adapter<AlRViewHold
             vh.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    mOnItemLongClickListener.onLongClick(v, item);
+                    mOnItemLongClickListener.onLongClick(v, item,position);
                     return true;
                 }
             });

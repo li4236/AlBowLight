@@ -3,6 +3,7 @@ package com.al.bowlight.fragment;
 import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,6 +14,7 @@ import com.al.bowlight.base.BaseFragment;
 import com.al.bowlight.bean.ScreenInfo;
 import com.al.bowlight.impl.onAlItemClickListener;
 import com.al.bowlight.view.ColorPicker;
+import com.al.bowlight.view.TimePopupWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,7 @@ public class ColourFragment extends BaseFragment {
 
         m.setOnItemClickListener(new onAlItemClickListener() {
             @Override
-            public void onClick(View view, Object item) {
+            public void onClick(View view, Object item,int position) {
 
             }
         });
@@ -102,6 +104,12 @@ public class ColourFragment extends BaseFragment {
         timer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                TimePopupWindow timePopupWindow = new TimePopupWindow(getActivity());
+
+                timePopupWindow.showAtLocation(view, Gravity.BOTTOM,0,0);
+
 
             }
         });

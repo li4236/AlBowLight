@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,6 +16,7 @@
         android:paddingRight="10dp">
 
         <TextView
+            android:id="@+id/pop_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="取消"
@@ -31,6 +33,7 @@
             android:textSize="17dp" />
 
         <TextView
+            android:id="@+id/pop_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="保存"
@@ -81,7 +84,7 @@
         <ImageView
             android:id="@+id/pop_top_close"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:src="@mipmap/switch_close" />
     </LinearLayout>
 
@@ -128,7 +131,7 @@
         <ImageView
             android:id="@+id/pop_bottom_close"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:src="@mipmap/switch_close" />
     </LinearLayout>
 

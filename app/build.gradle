@@ -30,6 +30,21 @@ android {
             keyPassword 'fGG7haw4a6A+en+prLCATAS8'
         }
     }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def buildName
+            variant.productFlavors.each { output ->
+                buildName = output.name
+            }
+            def buildType =
+                    variant.variantData.variantConfiguration.buildType.name
+            outputFileName =
+                    "AlBowLight" + "_" + buildType + "_v" +
+                            defaultConfig.versionName + "_" + getDate() +
+                            ".apk"
+        }
+    }
     productFlavors {
     }
 }
@@ -45,3 +60,11 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 }
+
+def getDate() {
+    def date = new Date()
+//    def formattedDate = date.format('yyyy_MM_dd_HHmm')
+    def formattedDate = date.format('yyyy_MM_dd_HH_mm')
+    return formattedDate
+}
+

@@ -27,7 +27,7 @@ public class ScreenBotAdapter extends AlRBaseAdapter<ScreenInfo> {
 
 
         ((CardView) viewHolder.get(R.id.sc_card)).setCardBackgroundColor(item.getPath());
-//        (viewHolder.get(R.id.sc_card)).setBackgroundColor(item.getPath());
+
         viewHolder.get(R.id.sc_card).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
@@ -48,7 +48,6 @@ public class ScreenBotAdapter extends AlRBaseAdapter<ScreenInfo> {
                 return true;
             }
         });
-
 
 
     }
